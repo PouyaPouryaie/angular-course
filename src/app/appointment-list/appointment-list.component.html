@@ -4,8 +4,20 @@
     <button (click)="addAppointment()">Add</button>
 </div>
 
+
 <ul>
     <li *ngFor="let appointment of appointments">
-        {{appointment.title}} - {{appointment.date | date:'shortDate'}}  <!--{{appointment.date | date:'dd.MM.yyyy'}}-->
+        {{appointment.title}} - {{appointment.date | date:'shortDate'}} <!--{{appointment.date | date:'dd.MM.yyyy'}}-->
+
+        <button (click)="deleteAppointment(appointment.id)">Delete</button>
     </li>
 </ul>
+
+
+<!-- <li *ngFor="let appointment of appointments; index as i"> -->
+<!-- <ul>
+    <li *ngFor="let appointment of appointments; let i = index">
+        {{appointment.title}} - {{appointment.date | date:'shortDate'}}
+        <button (click)="deleteAppointmentWithIndex(i)">Delete</button>
+    </li>
+</ul> -->

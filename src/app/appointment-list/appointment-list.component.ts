@@ -36,4 +36,13 @@ export class AppointmentListComponent {
       this.newAppointmentDate = new Date();
     }
   }
+
+  deleteAppointment(id: number) {
+    this.appointments = this.appointments.filter(app => app.id !== id);
+  }
+
+  deleteAppointmentWithIndex(index: number) {
+    this.appointments.splice(index, 1);
+  }
+
 }

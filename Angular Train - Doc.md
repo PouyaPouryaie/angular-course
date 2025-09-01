@@ -18,12 +18,28 @@ ng serve -o
 -o / --open: open the browser
 ```
 
+- Generates a new Module with the specified name.
+```
+ng g module appointment-module
+```
+
 - Generates a new component with the specified name.
 ```
 ng g component appointment-list
 
 ng g c appointment-list
 ```
+
+- Generates a component and bind (connect) to module
+```
+ng g c home --module=home 
+```
+
+- Generates a serviceng
+```
+ng g service home/home  
+```
+
 
 - Generate interface
 ```
@@ -75,3 +91,6 @@ export class AppComponent {
 ## Install and using bootstrap
 1. install on local project: `npm install bootstrap@5.3`
 2. import in the project in root/styles.css file: `@import "~bootstrap/dist/css/bootstrap.min.css"`
+
+## Component
+- each component only can bind to one module

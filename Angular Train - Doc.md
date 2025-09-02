@@ -94,3 +94,11 @@ export class AppComponent {
 
 ## Component
 - each component only can bind to one module
+
+## Extera Code
+```html
+
+// null checking before checking value, (?) mark before ".invalid"
+<div *ngIf="reservationForm.get('checkInDate')?.invalid">check date</div>
+
+```

@@ -112,4 +112,15 @@ export class AppComponent {
 // null checking before checking value, (?) mark before ".invalid"
 <div *ngIf="reservationForm.get('checkInDate')?.invalid">check date</div>
 
+// ng-template: if you want to render something in specific condition
+<ng-template [ngIf]="reservationForm.get('checkInDate')?.invalid">check date</ng-template>
+
+// or you can add name for calling in html (local reference)
+
+<ng-tempate #noReservation>
+    <p>No Reservation available.</p>
+</ng-tempate>
+
+<ul *ngIf="reservations.length; else noReservation"></ul>
+
 ```

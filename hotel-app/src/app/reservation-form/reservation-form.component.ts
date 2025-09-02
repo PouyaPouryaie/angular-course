@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-form',
@@ -14,8 +15,9 @@ export class ReservationFormComponent implements OnInit {
 
   // utilize dependency injection (ex: to get FormBuilder instance and use it to create the form (Angular way for dependency injection))
   constructor(
-    private fb: FormBuilder,
-    private reservationService: ReservationService
+    private readonly fb: FormBuilder,
+    private readonly reservationService: ReservationService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class ReservationFormComponent implements OnInit {
       this.reservationService.addReservation(newReservation);
       this.reservationForm.reset();
       alert('Reservation created successfully!');
+      this.router.navigate(['/list']);
     }
   }
 

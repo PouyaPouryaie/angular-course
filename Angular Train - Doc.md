@@ -77,6 +77,17 @@ export class AppComponent {
         return a + b;
     }
 
+    // with multiple return type
+    getValue(a: number) : string | number | undefined {
+        if (a < 0) {
+            return undefined;
+        } else if (a > 10) {
+            return a;
+        } else {
+            return 'less than 10';
+        }
+    }
+
     f () {
         this.log('test');
         this.items.push('item4');

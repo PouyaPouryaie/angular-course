@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReservationService } from '../reservation/reservation.service';
+import { Reservation } from '../models/reservation';
 
 @Component({
   selector: 'app-reservation-form',
@@ -10,9 +12,11 @@ export class ReservationFormComponent implements OnInit {
 
   reservationForm: FormGroup = new FormGroup({}); // mock initialization
 
-  // utilize dependency injection to get FormBuilder instance and use it to create the form (Angular way for dependency injection)
-  constructor(private fb: FormBuilder) {
-  }
+  // utilize dependency injection (ex: to get FormBuilder instance and use it to create the form (Angular way for dependency injection))
+  constructor(
+    private fb: FormBuilder,
+    private reservationService: ReservationService
+  ) {}
 
   ngOnInit(): void {
     this.reservationForm = this.fb.group({
@@ -26,7 +30,12 @@ export class ReservationFormComponent implements OnInit {
 
   onSubmit() {
     if (this.reservationForm.valid) {
-      console.log('Reservation valid');
+      
+      // since the name of properties in the form group and the Reservation interface are the same, we can directly assign the form value to a Reservation object
+      let newReservation : Reservation = this.reservationForm.value;
+      this.reservationService.addReservation(newReservation);
+      this.reservationForm.reset();
+      alert('Reservation created successfully!');
     }
   }
 

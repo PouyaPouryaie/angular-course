@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reservation-form',
@@ -17,7 +17,8 @@ export class ReservationFormComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly reservationService: ReservationService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -28,16 +29,32 @@ export class ReservationFormComponent implements OnInit {
       guestEmail: ['', [Validators.required, Validators.email]],
       roomNumber: ['', Validators.required]
     })
+    
+    let reservationId = this.activatedRoute.snapshot.paramMap.get('id'); // activatedRoute is used to get the current route information
+    if (reservationId) {
+      let existingReservation = this.reservationService.getReservation(reservationId);
+      if (existingReservation) {
+        this.reservationForm.patchValue(existingReservation); // patchValue is used to update the form with existing reservation data
+      }
+    }
   }
 
   onSubmit() {
     if (this.reservationForm.valid) {
       
       // since the name of properties in the form group and the Reservation interface are the same, we can directly assign the form value to a Reservation object
-      let newReservation : Reservation = this.reservationForm.value;
-      this.reservationService.addReservation(newReservation);
+      let reservation : Reservation = this.reservationForm.value;
+
+      let reservationId = this.activatedRoute.snapshot.paramMap.get('id'); // activatedRoute is used to get the current route information
+      if (reservationId) {
+        this.reservationService.updateReservation(reservationId, reservation);
+        alert('Reservation updated successfully!');
+      } else {
+        this.reservationService.addReservation(reservation);
+        alert('Reservation created successfully!');
+      }
+
       this.reservationForm.reset();
-      alert('Reservation created successfully!');
       this.router.navigate(['/list']);
     }
   }

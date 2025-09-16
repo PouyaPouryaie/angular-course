@@ -1,0 +1,94 @@
+{
+  "uuid": "84b62d90-dc7a-49ce-b50a-db3cbda0bf9e",
+  "lastMigration": 33,
+  "name": "Hotel app mock",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "d30120a2-66bb-4bc2-a49f-0b0894a2ae6b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "reservations",
+      "responses": [
+        {
+          "uuid": "ca73cc16-b296-490f-abe4-7e2963065581",
+          "body": "[\n  {\n    \"id\": 1,\n    \"guestName\": \"pouya\",\n    \"guestEmail\": \"p@po.com\",\n    \"roomNumber\": 101,\n    \"checkInDate\": \"2025-08-08\",\n    \"checkOutDate\": \"2025-08-08\"\n  },\n  {\n    \"id\": 2,\n    \"guestName\": \"atena\",\n    \"guestEmail\": \"a@th.com\",\n    \"roomNumber\": 202,\n    \"checkInDate\": \"2025-08-10\",\n    \"checkOutDate\": \"2025-08-15\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "d30120a2-66bb-4bc2-a49f-0b0894a2ae6b"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

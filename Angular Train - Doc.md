@@ -18,12 +18,28 @@ ng serve -o
 -o / --open: open the browser
 ```
 
+- Generates a new Module with the specified name.
+```
+ng g module appointment-module
+```
+
 - Generates a new component with the specified name.
 ```
 ng g component appointment-list
 
 ng g c appointment-list
 ```
+
+- Generates a component and bind (connect) to module
+```
+ng g c home --module=home 
+```
+
+- Generates a serviceng
+```
+ng g service home/home  
+```
+
 
 - Generate interface
 ```
@@ -61,6 +77,17 @@ export class AppComponent {
         return a + b;
     }
 
+    // with multiple return type
+    getValue(a: number) : string | number | undefined {
+        if (a < 0) {
+            return undefined;
+        } else if (a > 10) {
+            return a;
+        } else {
+            return 'less than 10';
+        }
+    }
+
     f () {
         this.log('test');
         this.items.push('item4');
@@ -75,3 +102,25 @@ export class AppComponent {
 ## Install and using bootstrap
 1. install on local project: `npm install bootstrap@5.3`
 2. import in the project in root/styles.css file: `@import "~bootstrap/dist/css/bootstrap.min.css"`
+
+## Component
+- each component only can bind to one module
+
+## Extera Code
+```html
+
+// null checking before checking value, (?) mark before ".invalid"
+<div *ngIf="reservationForm.get('checkInDate')?.invalid">check date</div>
+
+// ng-template: if you want to render something in specific condition
+<ng-template [ngIf]="reservationForm.get('checkInDate')?.invalid">check date</ng-template>
+
+// or you can add name for calling in html (local reference)
+
+<ng-tempate #noReservation>
+    <p>No Reservation available.</p>
+</ng-tempate>
+
+<ul *ngIf="reservations.length; else noReservation"></ul>
+
+```

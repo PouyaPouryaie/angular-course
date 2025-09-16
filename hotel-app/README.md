@@ -1,0 +1,6 @@
+# HotelApp
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+
+## Main Repository
+[Repo](https://github.com/JannickLeismann/angular-course-hotel-reservation-app)

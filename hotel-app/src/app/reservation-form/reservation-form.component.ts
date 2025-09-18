@@ -32,10 +32,12 @@ export class ReservationFormComponent implements OnInit {
     
     let reservationId = this.activatedRoute.snapshot.paramMap.get('id'); // activatedRoute is used to get the current route information
     if (reservationId) {
-      let existingReservation = this.reservationService.getReservation(reservationId);
-      if (existingReservation) {
-        this.reservationForm.patchValue(existingReservation); // patchValue is used to update the form with existing reservation data
-      }
+
+        this.reservationService.getReservation(reservationId).subscribe(reservation => {
+          if (reservation) {
+            this.reservationForm.patchValue(reservation);
+          }
+        });
     }
   }
 
@@ -47,11 +49,13 @@ export class ReservationFormComponent implements OnInit {
 
       let reservationId = this.activatedRoute.snapshot.paramMap.get('id'); // activatedRoute is used to get the current route information
       if (reservationId) {
-        this.reservationService.updateReservation(reservationId, reservation);
-        alert('Reservation updated successfully!');
+        this.reservationService.updateReservation(reservationId, reservation).subscribe(() => {
+          alert('Reservation updated successfully!');
+        });
       } else {
-        this.reservationService.addReservation(reservation);
-        alert('Reservation created successfully!');
+        this.reservationService.addReservation(reservation).subscribe(() => {
+          alert('Reservation created successfully!');
+        });
       }
 
       this.reservationForm.reset();

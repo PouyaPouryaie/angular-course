@@ -124,3 +124,6 @@ export class AppComponent {
 <ul *ngIf="reservations.length; else noReservation"></ul>
 
 ```
+
+## Mock API
+Mockoon is an open-source application that you can use to create a mock API.

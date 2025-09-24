@@ -2,6 +2,16 @@
 
 - [Repository URL](https://github.com/JannickLeismann/angular-course-appointment-app)
 
+### install & uninstall Angular
+```
+npm install @angular/cli --location=global
+
+## specifc version
+npm i -g @angular/cli@16.2.16
+
+npm uninstall @angular/cli --location=global
+```
+
 ## Commands
 - Check the angular version
 ```

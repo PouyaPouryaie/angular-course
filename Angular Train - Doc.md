@@ -3,7 +3,7 @@
 - [Repository URL](https://github.com/JannickLeismann/angular-course-appointment-app)
 
 ### install & uninstall Angular
-```
+```bash
 npm install @angular/cli --location=global
 
 ## specifc version
@@ -14,58 +14,76 @@ npm uninstall @angular/cli --location=global
 
 ## Commands
 - Check the angular version
-```
+```bash
 ng v
 ```
 - Creates a new Angular project with the specified project name.
-```
+```bash
 # ng new <app-name>-app
 ng new appointment-app
 ```
 - Builds the application and starts a web server to serve your application during development.
-```
+```bash
 ng serve -o
 -o / --open: open the browser
 ```
 
 - Generates a new Module with the specified name.
-```
+```bash
 ng g module appointment-module
 ```
 
 - Generates a new component with the specified name.
-```
+```bash
 ng g component appointment-list
 
 ng g c appointment-list
 ```
 
 - Generates a component and bind (connect) to module
-```
+```bash
 ng g c home --module=home 
 ```
 
 - Generates a serviceng
-```
+```bash
 ng g service home/home  
 ```
 
 
 - Generate interface
-```
+```bash
 ng g interface models/appointment
 ```
 
-- Builds your application for production, creating a dist/ folder with the output.
+- Generate class
+```bash
+ng g class models/appointment
 ```
+
+- Builds your application for production, creating a dist/ folder with the output.
+```bash
 ng build
 ```
 
 - Checks your application for outdated dependencies, and can also update them.
-```
+```bash
 ng update
 ```
 
+- Generate Environments
+```bash
+ng g environments
+```
+After generate environments, angular add below section under development part in angular.json file
+```json
+"fileReplacements": [
+    {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.development.ts"
+    }
+]
+```
 
 ## TypeScript basic
 ```ts

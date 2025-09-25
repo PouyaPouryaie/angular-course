@@ -132,6 +132,11 @@ export class AppComponent {
 1. install on local project: `npm install bootstrap@5.3`
 2. import in the project in root/styles.css file: `@import "~bootstrap/dist/css/bootstrap.min.css"`
 
+## Install Angular Material
+[Documentation](https://material.angular.dev/)
+1. install on local project: `ng add @angular/material`
+
+
 ## Component
 - each component only can bind to one module
 

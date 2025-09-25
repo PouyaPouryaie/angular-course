@@ -136,6 +136,11 @@ export class AppComponent {
 [Documentation](https://material.angular.dev/)
 1. install on local project: `ng add @angular/material`
 
+## Angular Flex Layout
+[Repository URL](https://github.com/angular/flex-layout)
+1. install on local project: `npm i -s @angular/flex-layout`
+since this package is deprecated I had to use this community-repo: `https://github.com/ngbracket/ngx-layout`
+1. install: `npm i @ngbracket/ngx-layout@16.1.1`
 
 ## Component
 - each component only can bind to one module

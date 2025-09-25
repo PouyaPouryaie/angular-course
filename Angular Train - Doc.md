@@ -84,6 +84,7 @@ After generate environments, angular add below section under development part in
     }
 ]
 ```
+then if you want to run your application with specific environment: `ng serve --configuration=development`
 
 ## TypeScript basic
 ```ts

@@ -135,6 +135,8 @@ export class AppComponent {
 ## Install Angular Material
 [Documentation](https://material.angular.dev/)
 1. install on local project: `ng add @angular/material`
+2. import in the project in root/styles.css file: `@import "~@angular/material/prebuilt-themes/indigo-pink.css";`
+
 
 ## Angular Flex Layout
 [Repository URL](https://github.com/angular/flex-layout)
